@@ -1,7 +1,7 @@
 <html lang="en">
   <head>
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="191842159655-int3fcqfn5mdq5qi6bo9d85pecbf598k.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="191842159655-f3q9s9ooe2ukmgm63lv231b101mse84d.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <script type="text/javascript">
@@ -63,8 +63,8 @@ clevertap.privacy.push({useIP: false});
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
-        console.log("profile: "+ profile);
-        console.log("ID: " + profile; // Don't send this directly to your server!
+        //console.log("profile: "+ profile);
+        // console.log("ID: " + profile); // Don't send this directly to your server!
         console.log('Full Name: ' + profile.getName());
         console.log('Given Name: ' + profile.getGivenName());
         console.log('Family Name: ' + profile.getFamilyName());
@@ -75,36 +75,22 @@ clevertap.privacy.push({useIP: false});
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
 
-      }
-    </script>
-
-    <!-- <script>
-      function senddata(profile) {
-        // Useful data for your client-side scripts:
-
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-
-        clevertap.onUserLogin.push({
+         clevertap.onUserLogin.push({
                                        "Site": {
-                                                "Name": "Jack Montana",            // String
-                                               "Identity": 61026032,              // String or number
-                                                "Email": "jack@gmail.com",         // Email address of the user
+                                                "Name": profile.getName(),            // String
+                                                             // String or number
+                                                "Email": profile.getEmail(),         // Email address of the user
 
 
  }
 });
 
+
+
       }
-    </script> -->
+    </script>
+
+
 
   </body>
 </html>
