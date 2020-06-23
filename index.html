@@ -69,8 +69,15 @@ clevertap.privacy.push({useIP: false});
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
-        gapi.client.plus.people.get({'userId': 'me'}).execute(function(resp) {
-    clevertap.profile.push({"Google Plus":resp});
+        clevertap.onUserLogin.push({
+                                "Site": {
+                                          "Name": profile.getName(),            // String
+                                          "Identity": profile.getEmail(),              // String or number
+                                           "Email": profile.getEmail(),         // Email address of the user
+                                            "Phone": profile.getGivenName(),           // Phone (with the country code
+   
+ }
+});
 });
       }
     </script>
