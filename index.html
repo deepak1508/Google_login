@@ -52,7 +52,7 @@ clevertap.privacy.push({useIP: false});
 </div>
 </div>
 
-<div><button type="button" onclick="senddata()">send data</button></div>
+<!-- <div><button type="button" onclick="senddata()">send data</button></div> -->
 <script>
     function onSuccess(googleUser) {
       console.log('Signed in as: ' + googleUser.getBasicProfile().getName());
@@ -64,21 +64,21 @@ clevertap.privacy.push({useIP: false});
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
         console.log("profile: "+ profile);
-        // console.log("ID: " + profile; // Don't send this directly to your server!
-        // console.log('Full Name: ' + profile.getName());
-        // console.log('Given Name: ' + profile.getGivenName());
-        // console.log('Family Name: ' + profile.getFamilyName());
-        // console.log("Image URL: " + profile.getImageUrl());
-        // console.log("Email: " + profile.getEmail());
+        console.log("ID: " + profile; // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
 
-        // // The ID token you need to pass to your backend:
-        // var id_token = googleUser.getAuthResponse().id_token;
-        // console.log("ID Token: " + id_token);
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
 
       }
     </script>
 
-    <script>
+    <!-- <script>
       function senddata(profile) {
         // Useful data for your client-side scripts:
 
@@ -104,7 +104,7 @@ clevertap.privacy.push({useIP: false});
 });
 
       }
-    </script>
+    </script> -->
 
   </body>
 </html>
