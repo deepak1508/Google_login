@@ -3,13 +3,14 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="191842159655-int3fcqfn5mdq5qi6bo9d85pecbf598k.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    
+
     <script type="text/javascript">
+      var profile;
      var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
 
 clevertap.account.push({"id":"TEST-Z84-48W-W75Z"});
-clevertap.privacy.push({optOut: false}); 
-clevertap.privacy.push({useIP: false}); 
+clevertap.privacy.push({optOut: false});
+clevertap.privacy.push({useIP: false});
  (function () {
      var wzrk = document.createElement('script');
      wzrk.type = 'text/javascript';
@@ -19,11 +20,12 @@ clevertap.privacy.push({useIP: false});
      s.parentNode.insertBefore(wzrk, s);
   })();
 </script>
-    
+
   </head>
   <body>
     <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-gapiscan="true" data-onload="true"></div> -->
 
+<button type="button" onclick="senddata">Click Me!</button>
 
       <div class="g-signin2" data-onsuccess="onSignIn" >
 
@@ -59,6 +61,24 @@ clevertap.privacy.push({useIP: false});
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
+        // console.log("ID: " + profile; // Don't send this directly to your server!
+        // console.log('Full Name: ' + profile.getName());
+        // console.log('Given Name: ' + profile.getGivenName());
+        // console.log('Family Name: ' + profile.getFamilyName());
+        // console.log("Image URL: " + profile.getImageUrl());
+        // console.log("Email: " + profile.getEmail());
+
+        // // The ID token you need to pass to your backend:
+        // var id_token = googleUser.getAuthResponse().id_token;
+        // console.log("ID Token: " + id_token);
+
+      }
+    </script>
+
+    <script>
+      function senddata(profile) {
+        // Useful data for your client-side scripts:
+
         console.log("ID: " + profile.getId()); // Don't send this directly to your server!
         console.log('Full Name: ' + profile.getName());
         console.log('Given Name: ' + profile.getGivenName());
@@ -69,17 +89,19 @@ clevertap.privacy.push({useIP: false});
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
+
         clevertap.onUserLogin.push({
-                                "Site": {
-                                          "Name": profile.getName(),            // String
-                                          "Identity": profile.getEmail(),              // String or number
-                                           "Email": profile.getEmail(),         // Email address of the user
-                                            "Phone": profile.getGivenName(),           // Phone (with the country code
-   
+                                       "Site": {
+                                                "Name": "Jack Montana",            // String
+                                               "Identity": 61026032,              // String or number
+                                                "Email": "jack@gmail.com",         // Email address of the user
+
+
  }
 });
-});
+
       }
     </script>
+
   </body>
 </html>
